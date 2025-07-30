@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap } from 'lucide-react';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Zap } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,12 +9,12 @@ const Navbar = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/portfolio', label: 'Portfolio' },
-    { path: '/about', label: 'About' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' },
+    { path: "/", label: "Home" },
+    { path: "/services", label: "Services" },
+    { path: "/portfolio", label: "Portfolio" },
+    { path: "/about", label: "About" },
+    { path: "/blog", label: "Blog" },
+    { path: "/contact", label: "Contact" },
   ];
 
   return (
@@ -22,11 +22,16 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg group-hover:shadow-lg transition-all duration-200">
-              <Zap className="h-6 w-6 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">VoidCraftr</span>
+          <Link
+            to="/"
+            style={{ height: "100%" }}
+            className="flex items-center space-x-2 group"
+          >
+            <img
+              src="/images/voidcraftr_logo.png"
+              style={{ height: "90%" }}
+              alt="VoidCraftr Logo"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,8 +42,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   isActive(link.path)
-                    ? 'text-blue-600 border-b-2 border-blue-600 pb-4'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? "text-blue-600 border-b-2 border-blue-600 pb-4"
+                    : "text-gray-700 hover:text-blue-600"
                 }`}
               >
                 {link.label}
@@ -71,8 +76,8 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className={`block px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive(link.path)
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                 }`}
               >
                 {link.label}
