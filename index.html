@@ -14,12 +14,255 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- <script src='https://www.noupe.com/embed/019870c46a3d7cb485416bb2de204bdb5cd1.js'></script> -->
+
   <title>VoidCraftr</title>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+
+  <!-- ChatBot SaaS Widget -->
+  <div id="chatbot-widget-1"></div>
+
+  <!-- Chatscribe Embed -->
+  <!-- <script>
+    window.chatscribe = {
+      chatbotId: 'ce8860fa-a0b0-47e7-a541-c17961fc6169',
+      name: "Support Bot",
+      introMessage: "Hello! Welcome to Nosnia AI. I can provide information about Synergy Sphere, our team collaboration device, digital transformation consulting, and our mission to empower businesses. How can I help you today?",
+      themeColor: "#30A14E",
+      url: "https://nosnia.ai"
+    };
+  </script> -->
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/68b41e1fd45e5d19250fa3cf/1j3vpbc4r';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <!-- This script is for demonstration purposes. In a real application, this would be hosted on a CDN. -->
+  <script src="/init.js" async defer></script>
+  <!-- End Chatscribe Embed -->
+
+  <!-- <script>
+    (function () {
+      var chatbotConfig = {
+        theme: "dark",
+        position: "bottom-right",
+        primaryColor: "#FF6B6B",
+        title: "Need Help?",
+        placeholder: "Type your message...",
+        width: "350px",
+        height: "500px",
+        showOnLoad: true,
+        enableSound: true,
+        avatar: null,
+        companyName: "Support Team"
+      };
+
+      var websiteId = 1;
+      var apiBase = "http://localhost:8000";
+
+      // Create widget HTML
+      var widgetHTML = `
+        <div id="chat-widget" style="
+            position: fixed;
+            ${chatbotConfig.position.includes('right') ? 'right: 20px;' : 'left: 20px;'}
+            ${chatbotConfig.position.includes('bottom') ? 'bottom: 20px;' : 'top: 20px;'}
+            width: ${chatbotConfig.width};
+            height: ${chatbotConfig.height};
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            font-family: Arial, sans-serif;
+            z-index: 10000;
+            display: ${chatbotConfig.showOnLoad ? 'flex' : 'none'};
+            flex-direction: column;
+        ">
+            <div id="chat-header" style="
+                background: ${chatbotConfig.primaryColor};
+                color: white;
+                padding: 15px;
+                border-radius: 10px 10px 0 0;
+                font-weight: bold;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            ">
+                <span>${chatbotConfig.title}</span>
+                <button id="chat-close" style="
+                    background: none;
+                    border: none;
+                    color: white;
+                    font-size: 18px;
+                    cursor: pointer;
+                ">×</button>
+            </div>
+            <div id="chat-messages" style="
+                flex: 1;
+                padding: 15px;
+                overflow-y: auto;
+                max-height: 350px;
+            ">
+                <div class="bot-message" style="
+                    margin-bottom: 10px;
+                    padding: 10px;
+                    background: #f1f1f1;
+                    border-radius: 10px;
+                    border-bottom-left-radius: 2px;
+                ">
+                    Hello! I'm here to help you. How can I assist you today?
+                </div>
+            </div>
+            <div id="chat-input-container" style="
+                padding: 15px;
+                border-top: 1px solid #eee;
+                display: flex;
+                gap: 10px;
+            ">
+                <input id="chat-input" type="text" placeholder="${chatbotConfig.placeholder}" style="
+                    flex: 1;
+                    padding: 10px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    outline: none;
+                ">
+                <button id="chat-send" style="
+                    background: ${chatbotConfig.primaryColor};
+                    color: white;
+                    border: none;
+                    padding: 10px 15px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                ">Send</button>
+            </div>
+        </div>
+
+        <div id="chat-toggle" style="
+            position: fixed;
+            ${chatbotConfig.position.includes('right') ? 'right: 20px;' : 'left: 20px;'}
+            ${chatbotConfig.position.includes('bottom') ? 'bottom: 20px;' : 'top: 20px;'}
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: ${chatbotConfig.primaryColor};
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: ${chatbotConfig.showOnLoad ? 'none' : 'flex'};
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10001;
+        ">💬</div>
+    `;
+
+      // Insert widget into page
+      document.getElementById('chatbot-widget-1').innerHTML = widgetHTML;
+
+      // Add event listeners
+      var chatWidget = document.getElementById('chat-widget');
+      var chatToggle = document.getElementById('chat-toggle');
+      var chatClose = document.getElementById('chat-close');
+      var chatInput = document.getElementById('chat-input');
+      var chatSend = document.getElementById('chat-send');
+      var chatMessages = document.getElementById('chat-messages');
+
+      // Toggle widget
+      chatToggle.addEventListener('click', function () {
+        chatWidget.style.display = 'flex';
+        chatToggle.style.display = 'none';
+      });
+
+      chatClose.addEventListener('click', function () {
+        chatWidget.style.display = 'none';
+        chatToggle.style.display = 'flex';
+      });
+
+      // Send message
+      function sendMessage() {
+        var message = chatInput.value.trim();
+        if (!message) return;
+
+        // Add user message to chat
+        var userMsg = document.createElement('div');
+        userMsg.style.cssText = `
+            margin-bottom: 10px;
+            padding: 10px;
+            background: ${chatbotConfig.primaryColor};
+            color: white;
+            border-radius: 10px;
+            border-bottom-right-radius: 2px;
+            margin-left: 20px;
+        `;
+        userMsg.textContent = message;
+        chatMessages.appendChild(userMsg);
+
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Send to API
+        fetch(apiBase + '/api/v1/chat/' + websiteId, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ message: message })
+        })
+          .then(response => response.json())
+          .then(data => {
+            var botMsg = document.createElement('div');
+            botMsg.style.cssText = `
+                margin-bottom: 10px;
+                padding: 10px;
+                background: #f1f1f1;
+                border-radius: 10px;
+                border-bottom-left-radius: 2px;
+                margin-right: 20px;
+            `;
+            botMsg.textContent = data.response || 'Sorry, I encountered an error.';
+            chatMessages.appendChild(botMsg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          })
+          .catch(error => {
+            var errorMsg = document.createElement('div');
+            errorMsg.style.cssText = `
+                margin-bottom: 10px;
+                padding: 10px;
+                background: #ffe6e6;
+                border-radius: 10px;
+                color: #d00;
+                margin-right: 20px;
+            `;
+            errorMsg.textContent = 'Sorry, I\'m having trouble connecting. Please try again.';
+            chatMessages.appendChild(errorMsg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          });
+      }
+
+      chatSend.addEventListener('click', sendMessage);
+      chatInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+    })();
+  </script> -->
+  <!-- End ChatBot SaaS Widget -->
+
 </body>
 
 </html>
